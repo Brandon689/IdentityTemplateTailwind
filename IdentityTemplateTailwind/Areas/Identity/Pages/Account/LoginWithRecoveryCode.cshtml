@@ -4,7 +4,7 @@
     ViewData["Title"] = "Recovery code verification";
 }
 
-<h1 class="text-3xl font-bold mb-4">@ViewData["Title"]</h1>
+<h1 class="text-3xl font-semibold mb-4">@ViewData["Title"]</h1>
 <hr class="mb-6" />
 <p class="mb-6 text-gray-700">
     You have requested to log in with a recovery code. This login will not be remembered until you provide
@@ -19,7 +19,7 @@
                 <input asp-for="Input.RecoveryCode" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" autocomplete="off" placeholder="RecoveryCode" />
                 <span asp-validation-for="Input.RecoveryCode" class="text-red-600 text-sm"></span>
             </div>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Log in</button>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Log in</button>
         </form>
     </div>
 </div>

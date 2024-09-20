@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="flex space-x-4">
+    <li class="flex items-center">
+        <a id="manage" class="text-sm text-gray-300 hover:text-gray-900" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="flex items-center">
+        <form id="logoutForm" class="inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+            <button id="logout" type="submit" class="text-sm text-gray-300 hover:text-gray-900 bg-transparent border-none cursor-pointer">Logout</button>
+        </form>
+    </li>
+</ul>

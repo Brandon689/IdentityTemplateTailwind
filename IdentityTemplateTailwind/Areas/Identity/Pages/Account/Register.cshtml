@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 class="text-3xl font-bold mb-6">@ViewData["Title"]</h1>
+<h1 class="text-3xl font-semibold mb-6">@ViewData["Title"]</h1>
 
 <div class="flex flex-wrap -mx-3">
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -27,7 +27,7 @@
                 <input asp-for="Input.ConfirmPassword" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-red-600 text-sm"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Register</button>
+            <button id="registerSubmit" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Register</button>
         </form>
     </div>
     <div class="w-full md:w-1/2 md:ml-auto px-3 mt-6 md:mt-0">
@@ -53,7 +53,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins!)
                                 {
-                                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mb-2" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded mr-2 mb-2" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>

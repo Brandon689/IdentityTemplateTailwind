@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityTemplateTailwind</title>
+    <script type="importmap"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IdentityTemplateTailwind.styles.css" asp-append-version="true" />
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-[#1d2327] shadow text-white py-2 px-4">
+        <nav class="h-full flex items-center">
+            <div class="flex items-center justify-between w-full">
+                <ul class="flex space-x-4">
+                    <li class="flex items-center">
+                        <a class="text-sm text-gray-300 hover:text-gray-900" asp-area="" asp-page="/Index">Visit Site</a>
+                    </li>
+                    <li class="flex items-center">
+                        <a class="text-sm text-gray-300 hover:text-gray-900" asp-area="" asp-page="/">New +</a>
+                    </li>
+                </ul>
+                <partial name="_AdminLoginPartial" />
+            </div>
+        </nav>
+    </header>
+
+    <main class="">
+        @RenderBody()
+    </main>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
