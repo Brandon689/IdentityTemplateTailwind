@@ -1,6 +1,6 @@
 # Identity Template - Tailwind
 
-Complete Auth for ASP .NET 9 projects
+Complete Auth for ASP .NET 9 projects or .NET 8.
 
 * ASP Razor Pages / MVC scaffolded Identity
 * Web Api with Auth
