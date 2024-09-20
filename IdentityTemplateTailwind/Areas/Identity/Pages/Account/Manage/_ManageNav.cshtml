@@ -1,0 +1,33 @@
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="flex flex-col space-y-2">
+    <li>
+        <a class="block px-4 py-2 rounded-md @(ManageNavPages.IndexNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+           id="profile" asp-page="./Index">Profile</a>
+    </li>
+    <li>
+        <a class="block px-4 py-2 rounded-md @(ManageNavPages.EmailNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+           id="email" asp-page="./Email">Email</a>
+    </li>
+    <li>
+        <a class="block px-4 py-2 rounded-md @(ManageNavPages.ChangePasswordNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+           id="change-password" asp-page="./ChangePassword">Password</a>
+    </li>
+    @if (hasExternalLogins)
+    {
+        <li id="external-logins">
+            <a class="block px-4 py-2 rounded-md @(ManageNavPages.ExternalLoginsNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+               id="external-login" asp-page="./ExternalLogins">External logins</a>
+        </li>
+    }
+    <li>
+        <a class="block px-4 py-2 rounded-md @(ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+           id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a>
+    </li>
+    <li>
+        <a class="block px-4 py-2 rounded-md @(ManageNavPages.PersonalDataNavClass(ViewContext) == "active" ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100")"
+           id="personal-data" asp-page="./PersonalData">Personal data</a>
+    </li>
+</ul>

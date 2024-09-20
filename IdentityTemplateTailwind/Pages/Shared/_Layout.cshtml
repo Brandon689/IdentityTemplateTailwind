@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityTemplateTailwind</title>
+    <script type="importmap"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IdentityTemplateTailwind.styles.css" asp-append-version="true" />
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a class="text-xl font-semibold" asp-area="" asp-page="/Index">IdentityTemplateTailwind</a>
+                    <ul class="hidden md:flex space-x-4">
+                        <li>
+                            <a class="text-gray-700 hover:text-gray-900" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-700 hover:text-gray-900" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden md:block">
+                    <partial name="_LoginPartial" />
+                </div>
+                <button class="md:hidden" type="button" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-2" id="navbar-menu">
+                <ul class="flex flex-col space-y-2">
+                    <li>
+                        <a class="block text-gray-700 hover:text-gray-900" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="block text-gray-700 hover:text-gray-900" asp-area="" asp-page="/Privacy">Privacy</a>
+                    </li>
+                </ul>
+                <div class="mt-2">
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        @RenderBody()
+    </main>
+
+    <footer class="bg-gray-100 border-t">
+        <div class="container mx-auto px-4 py-4 text-center text-gray-600">
+            &copy; 2024 - IdentityTemplateTailwind - <a class="hover:text-gray-900" asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navbar-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
