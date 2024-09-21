@@ -1,5 +1,7 @@
 using IdentityTemplateTailwind.Data;
+using IdentityTemplateTailwind.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
